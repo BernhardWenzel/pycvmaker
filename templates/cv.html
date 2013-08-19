@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+<div id="content">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="no-space-row">
+            <td class="address" colspan="3" style="font-size: 12pt"><b>Bernhard Wenzel</b></td>
+        </tr>
+        <tr class="no-space-row">
+            <td class="address" colspan="2" style="white-space: nowrap; text-align: left;">
+                {% for e in entries if e.details %}
+                    {{ e.details.address_1 }}
+                {% endfor %}
+            </td>
+            <td class="address" style="text-align: left; margin-left: 150px;">
+                {% for e in entries if e.details %}
+                    {{ e.details.address_2 }}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td class="empty-row"></td>
+        </tr>
+        <!-- ======================== -->
+        <!-- HIGHLIGHTS               -->
+        <!-- ======================== -->
+        <tr>
+            <td class="left">
+                <strong>HIGHLIGHTS</strong>
+            </td>
+            <td colspan="2">
+                <p>Freelance software engineer with <b>{{ years }}+ years experience
+                    building business and web applications</b> in Germany, Spain, the UK and US.
+                    {{ highlights }}
+            </td>
+        </tr>
+
+        <!-- ======================== -->
+        <!-- EXPERIENCE               -->
+        <!-- ======================== -->
+        <tr class="no-space-row">
+            <td colspan="3">
+                <strong>EXPERIENCE</strong>
+            </td>
+        </tr>
+        {% for p in projects %}
+        <tr style="margin: 2px 0">
+            <td>
+                {% for d in p.duration_entries %}
+                {{ d }}<br>
+                {% endfor %}
+            </td>
+            <td colspan="2">
+                <strong>
+                    <u>
+                        {{ p.client_name }}, {{ p.client_location }}
+                    </u>
+                    {% if p.is_remote_project %}
+                    (remote project)
+                    {% endif %}
+                </strong>
+                <ul>
+                    {% for cv in p.cv_entries %}
+                    <li>{{ cv }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+
+        <!-- ======================== -->
+        <!-- FOUNDER               -->
+        <!-- ======================== -->
+        <tr class="no-space-row">
+            <td colspan="3">
+                <strong>FOUNDER</strong>
+            </td>
+        </tr>
+        {% for p in founderprojects %}
+        <tr>
+            <td>
+                {% if p.duration %}
+                {{ p.duration }}
+                {% else %}
+                {{ p.start }}
+                {% endif %}
+            </td>
+            <td colspan="2">
+                <strong><u>{{ p.client_url }}</u></strong>
+                {% if p.client_url == "www.levelfactory.com" %}(archived){% endif %}
+                <ul>
+                    {% for cv in p.cv_entries %}
+                    <li>{{ cv }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+
+        <!-- ======================== -->
+        <!-- EDUCATION                -->
+        <!-- ======================== -->
+        <tr class="no-space-row">
+            <td>
+                <strong>EDUCATION</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>2004</td>
+            <td colspan="2">
+                {{ education }}
+            </td>
+        </tr>
+
+        <!-- ======================== -->
+        <!-- IT SKILLS                -->
+        <!-- ======================== -->
+        {% for s in skills %}
+        <tr>
+            <td>
+                {% if forloop.first %}
+                <strong>IT SKILLS</strong>
+                {% else %}
+                {% endif %}
+            </td>
+            <td width="120">
+                {{ s.title }}
+            </td>
+            <td>
+                {{ s.content }}
+            </td>
+        </tr>
+        {% endfor %}
+
+        <!-- ======================== -->
+        <!-- LANGUAGES                -->
+        <!-- ======================== -->
+        <tr>
+            <td>
+                <strong>LANGUAGES</strong>
+            </td>
+            <td colspan="2">
+                {{ languages }}
+            </td>
+        </tr>
+
+        <!-- ======================== -->
+        <!-- HOBBIES                 -->
+        <!-- ======================== -->
+        <tr>
+            <td>
+                <strong>HOBBIES</strong>
+            </td>
+            <td colspan="2">
+                {{ hobbies }}
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
