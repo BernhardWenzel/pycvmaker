@@ -19,11 +19,12 @@ The pdf will be created under the `out` folder.
 ## Configure
 
 In `templates/settings.yaml` are following settings configurable:
-|Setting|Default|Explanation|
-|-------|-------|-------|
-|cv_template|cv.html|The html template|
-|output_folder|out|The folder of the pdf output|
-|file_name|cv-%Y.%m|The file name pattern, allowing dateformat variables|
+
+Setting|Default|Explanation
+-------|-------|-------
+cv_template|cv.html|The html template
+output_folder|out|The folder of the pdf output
+file_name|cv-%Y.%m|The file name pattern, allowing dateformat variables
 
 ## How it works
 
