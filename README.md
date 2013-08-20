@@ -28,6 +28,6 @@ file_name|cv-%Y.%m|The file name pattern, allowing dateformat variables
 
 ## How it works
 
-It parses a YAML file (`templates/entries.yaml`) which are then available in the Jinja template as `entries`.
+It parses a YAML file (`templates/entries.yaml`) which are then available in the Jinja template as `entries`. Have a look at `templates/cv.html` to see how they are used.
 
 
