@@ -4,14 +4,14 @@ Tool to create a pdf out of yaml descriptions. Generates a HTML out of yaml file
 
 ## Why?
 
-* Easy to layout using plain HTML & CSS. No need to mess with Word, Latex or anyhting like that
+* Easy to layout using plain HTML & CSS. No need to mess with Word, Latex or anything like that
 * Simple to update content, just maintain a flat YAML file
 * YAML is human reader friendly
 
 ## Installation
 
 1. Clone rep
-2. Rename `templates/entries.sample.yaml` to `templates/enties.yaml` and `templates/settings.samlple.yaml` to `templates/settings.yaml`
+2. Rename `templates/entries.sample.yaml` to `templates/entries.yaml` and `templates/settings.sample.yaml` to `templates/settings.yaml`
 3. Install requirements (using virtualenv)
 4. `cd pycvmaker/pycvmaker` and run script via `python run.py`
 The pdf will be created under the `out` folder.
