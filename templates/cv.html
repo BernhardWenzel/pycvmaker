@@ -127,16 +127,16 @@
         {% for e in entries if e.skill %}
             <tr>
                 <td>
-                    {% if loop.index == 0 %}
+                    {% if loop.index == 1 %}
                         <strong>IT SKILLS</strong>
                     {% else %}
                     {% endif %}
                 </td>
                 <td width="120">
-                    {{ e.title }}
+                    {{ e.skill.title }}
                 </td>
                 <td>
-                    {{ e.content }}
+                    {{ e.skill.content }}
                 </td>
             </tr>
         {% endfor %}

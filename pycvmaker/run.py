@@ -1,4 +1,5 @@
 import os
+import shutil
 from jinja2 import Environment, FileSystemLoader
 import ho.pisa as pisa
 import StringIO
@@ -34,7 +35,8 @@ if __name__ == "__main__":
     # output
     output_folder = "../" + settings.get("output_folder", "out") + "/"
 
-    # mkdir
+    # clean output folder
+    shutil.rmtree(output_folder)
     os.mkdir(output_folder)
 
     # create pdf
