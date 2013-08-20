@@ -1,0 +1,45 @@
+# =======================
+# DETAILS
+# =======================
+- details:
+    name: Your Name
+    address_1: >
+     Street<br>
+     City<br>
+     Country<br>
+    address_2: >
+     Mob: number<br>
+     Web: www.website.com<br>
+     Email: mailme<br>
+    highlights: >
+      Freelance software developer.
+    education: >
+      Master of Computer Science, 2004
+    languages: >
+      English, German, Spanish
+    hobbies: >
+      Hiking, Swimming
+
+# =======================
+# Skills
+# =======================
+
+- skill:
+    title: Development languages
+    content: Java (J2EE, J2SE), Python, Clojure
+
+# ========================
+# PROJECTS
+# ========================
+
+# --------------------------------------
+# BigCorp
+# --------------------------------------
+- client_name: BigCorp.com
+  client_url: www.bigcorp.com
+  client_location: Madrid, Spain
+  cv:
+    - E-commerce integration and marketing platform. Developed in Python, Flask, MongoDB
+  duration:
+    - 2004 - 2010
+    - 6 years

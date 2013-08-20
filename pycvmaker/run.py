@@ -1,5 +1,4 @@
 import os
-import shutil
 from jinja2 import Environment, PackageLoader
 import ho.pisa as pisa
 import StringIO
@@ -15,32 +14,31 @@ def render_html_to_pdf(html, filename):
 
 
 if __name__ == "__main__":
+    # setup yaml reader
     templates_folder = "../" + "templates" + "/"
     env = Environment(loader=PackageLoader('pycvmaker', templates_folder))
+
+    # load settings if available
+    settings = {}
+    if os.path.exists(templates_folder + "settings.yaml"):
+        settings = load(open(templates_folder + "settings.yaml"), Loader=Loader)
 
     # load entries yaml
     data = load(open(templates_folder + "entries.yaml"), Loader=Loader)
 
     # create and render template
-    cv_template = "cv.html"
+    cv_template = settings.get("cv_template", "cv.html")
     template = env.get_template(cv_template)
-    cv = template.render(entries=data)
+    cv = template.render(entries=data, templates_folder=templates_folder)
 
     # output
-    output_folder = "../" + "out" + "/"
+    output_folder = "../" + settings.get("cv_template", "out") + "/"
 
     # mkdir
     os.mkdir(output_folder)
 
-    # copy style.css
-    shutil.copyfile(templates_folder + "style.css", output_folder + "style.css")
-
-    # write html
-    f = open(output_folder + "cv.html", "w")
-    f.write(cv.encode("UTF-8"))
-
     # create pdf
-    date_format = "bernhard.wenzel.cv-%Y.%m"
+    date_format = settings.get("file_name", "cv-%Y.%m")
     title = date.today().strftime(date_format) + ".pdf"
     render_html_to_pdf(cv, output_folder + title)
 
