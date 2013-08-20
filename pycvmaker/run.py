@@ -16,10 +16,7 @@ def render_html_to_pdf(html, filename):
 if __name__ == "__main__":
     # setup yaml reader
     templates_folder = "../" + "templates" + "/"
-    env = Environment(loader=FileSystemLoader(templates_folder  ))
-
-        # loader=PackageLoader('pycvmaker', templates_folder))
-    # env = Environment(loader=PackageLoader('pycvmaker', templates_folder))
+    env = Environment(loader=FileSystemLoader(templates_folder))
 
     # load settings if available
     settings = {}
