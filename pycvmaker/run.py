@@ -1,5 +1,5 @@
 import os
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 import ho.pisa as pisa
 import StringIO
 from datetime import date
@@ -16,7 +16,10 @@ def render_html_to_pdf(html, filename):
 if __name__ == "__main__":
     # setup yaml reader
     templates_folder = "../" + "templates" + "/"
-    env = Environment(loader=PackageLoader('pycvmaker', templates_folder))
+    env = Environment(loader=FileSystemLoader(templates_folder  ))
+
+        # loader=PackageLoader('pycvmaker', templates_folder))
+    # env = Environment(loader=PackageLoader('pycvmaker', templates_folder))
 
     # load settings if available
     settings = {}
@@ -32,7 +35,7 @@ if __name__ == "__main__":
     cv = template.render(entries=data, templates_folder=templates_folder)
 
     # output
-    output_folder = "../" + settings.get("cv_template", "out") + "/"
+    output_folder = "../" + settings.get("output_folder", "out") + "/"
 
     # mkdir
     os.mkdir(output_folder)
