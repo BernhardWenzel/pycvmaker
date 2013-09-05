@@ -15,7 +15,7 @@ tr.no-space-row  td{
 }
 
 .address {
-  font-family: "Verdana"
+  font-family: "Verdana",sans-serif;
 }
 
 td {
