@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ templates_folder }}/style.css" type="text/css"/>
+</head>
+<body>
+<div id="content">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="no-space-row">
+            <td class="address" colspan="3" style="font-size: 12pt">
+                {% for e in entries if e.details %}
+                    <b>{{ e.details.name }}</b>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr class="no-space-row">
+            <td class="address" colspan="2" style="white-space: nowrap; text-align: left;">
+                {% for e in entries if e.details %}
+                    {{ e.details.address_1 }}
+                {% endfor %}
+            </td>
+            <td class="address" style="text-align: left; margin-left: 140px;">
+                {% for e in entries if e.details %}
+                    {{ e.details.address_2 }}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td class="empty-row"></td>
+        </tr>
+        <!-- ======================== -->
+        <!-- HIGHLIGHTS               -->
+        <!-- ======================== -->
+        <tr>
+            <td class="left">
+                <strong>HIGHLIGHTS</strong>
+            </td>
+            <td colspan="2">
+                {% for e in entries if e.details %}
+                    {{ e.details.highlights }}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <!-- ======================== -->
+        <!-- EXPERIENCE               -->
+        <!-- ======================== -->
+        <tr class="no-space-row">
+            <td colspan="3">
+                <strong>EXPERIENCE</strong>
+            </td>
+        </tr>
+        {% for e in entries if e.client_name and e.duration and not e.is_side_project and not e.cv_disabled %}
+            <tr style="margin: 2px 0">
+                <td>
+                    {% for d in e.duration %}
+                        {{ d }}<br>
+                    {% endfor %}
+                </td>
+                <td colspan="2">
+                    <strong>
+                        <u>
+                            {{ e.client_name }}, {{ e.client_location }}
+                        </u>
+                        {% if e.is_remote_project %}
+                            (remote project)
+                        {% endif %}
+                    </strong>
+                    <ul>
+                        {% for cv in e.cv %}
+                            <li>{{ cv }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+        <!-- ======================== -->
+        <!-- FOUNDER               -->
+        <!-- ======================== -->
+        <tr class="no-space-row">
+            <td colspan="3">
+                <strong>FOUNDER</strong>
+            </td>
+        </tr>
+        {% for e in entries if e.is_side_project and not e.cv_disabled %}
+            <tr>
+                <td>
+                    {% if e.duration %}
+                        {{ e.duration }}
+                    {% else %}
+                        {{ e.start.strftime("%Y") }}
+                    {% endif %}
+                </td>
+                <td colspan="2">
+                    <strong><u>{{ e.client_url }}</u></strong>
+                    {% if e.client_url == "www.levelfactory.com" %}(archived){% endif %}
+                    <ul>
+                        {% for cv in e.cv %}
+                            <li>{{ cv }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+        <!-- ======================== -->
+        <!-- EDUCATION                -->
+        <!-- ======================== -->
+        <tr class="no-space-row">
+            <td>
+                <strong>EDUCATION</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>2004</td>
+            <td colspan="2">
+                {% for e in entries if e.details %}
+                    {{ e.details.education }}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <!-- ======================== -->
+        <!-- IT SKILLS                -->
+        <!-- ======================== -->
+        {% for e in entries if e.skill %}
+            <tr>
+                <td>
+                    {% if loop.index == 1 %}
+                        <strong>IT SKILLS</strong>
+                    {% else %}
+                    {% endif %}
+                </td>
+                <td width="120">
+                    {{ e.skill.title }}
+                </td>
+                <td>
+                    {{ e.skill.content }}
+                </td>
+            </tr>
+        {% endfor %}
+
+        <!-- ======================== -->
+        <!-- LANGUAGES                -->
+        <!-- ======================== -->
+        <tr>
+            <td>
+                <strong>LANGUAGES</strong>
+            </td>
+            <td colspan="2">
+                {% for e in entries if e.details %}
+                    {{ e.details.languages }}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <!-- ======================== -->
+        <!-- HOBBIES                 -->
+        <!-- ======================== -->
+        <tr>
+            <td>
+                <strong>HOBBIES</strong>
+            </td>
+            <td colspan="2">
+                {% for e in entries if e.details %}
+                    {{ e.details.hobbies }}
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
