@@ -4,3 +4,11 @@ out
 *.pyc
 templates/entries.yaml
 templates/settings.yaml
+templates/cv-founder-section-until-2015.06.html
+templates/cv.html
+MYREADME.md
+.Python
+bin
+include
+lib
+activate

@@ -84,7 +84,7 @@
             </td>
         </tr>
         {% for e in entries if e.is_side_project_prosa and not e.cv_disabled %}
-        <tr class="no-space-row">
+        <tr>
 			<td>
 				{{e.duration}}
 			</td>
@@ -93,11 +93,6 @@
 			</td>
 		</tr>
         {% endfor %}
-
-        <tr>
-        	<td></td>
-        	<td colspan="2"><br>Avid blogger and coach, more info at: <b>bernhardwenzel.com</b></td>
-        </tr>
 
         <!-- ======================== -->
         <!-- EDUCATION                -->
