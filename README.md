@@ -11,7 +11,7 @@ Tool to create a pdf out of yaml descriptions. Generates a HTML out of yaml file
 ## Installation
 
 1. Clone rep
-2. Rename `templates/entries.sample.yaml` to `templates/entries.yaml` and `templates/settings.sample.yaml` to `templates/settings.yaml`
+2. Rename `templates/entries.sample.yaml` to `templates/entries.yaml`, `templates/settings.sample.yaml` to `templates/settings.yaml` and `templates/cv.sample.html` to `templates/cv.html`.
 3. Install requirements (using virtualenv)
 4. `cd pycvmaker/pycvmaker` and run script via `python run.py`
 The pdf will be created under the `out` folder.
